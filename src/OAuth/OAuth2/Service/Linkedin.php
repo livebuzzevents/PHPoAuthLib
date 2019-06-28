@@ -22,16 +22,16 @@ class Linkedin extends AbstractService
      * Defined scopes
      * @link http://developer.linkedin.com/documents/authentication#granting
      */
-    const SCOPE_R_BASICPROFILE      = 'r_basicprofile';
+    const SCOPE_R_LITEPROFILE       = 'r_liteprofile';
     const SCOPE_R_FULLPROFILE       = 'r_fullprofile';
     const SCOPE_R_EMAILADDRESS      = 'r_emailaddress';
     const SCOPE_R_NETWORK           = 'r_network';
     const SCOPE_R_CONTACTINFO       = 'r_contactinfo';
+    const SCOPE_R_1ST_CONNECTIONS   = 'r_1st_connections';
     const SCOPE_RW_NUS              = 'rw_nus';
-    const SCOPE_RW_COMPANY_ADMIN    = 'rw_company_admin';
     const SCOPE_RW_GROUPS           = 'rw_groups';
     const SCOPE_W_MESSAGES          = 'w_messages';
-    const SCOPE_W_SHARE             = 'w_share';
+    const SCOPE_W_MEMBER_SOCIAL     = 'w_member_social';
 
     public function __construct(
         CredentialsInterface $credentials,
@@ -43,7 +43,7 @@ class Linkedin extends AbstractService
         parent::__construct($credentials, $httpClient, $storage, $scopes, $baseApiUri, true);
 
         if (null === $baseApiUri) {
-            $this->baseApiUri = new Uri('https://api.linkedin.com/v1/');
+            $this->baseApiUri = new Uri('https://api.linkedin.com/v2/');
         }
     }
 
